@@ -1,36 +1,26 @@
 var field;
-var rez = 20;
+var rez = 10;
 var cols, rows;
-var threshold = 0.5
+var threshold = 50
+var fieldDrawer;
 
 function setup() {
   createCanvas(600, 400);
   cols = 1 + width / rez;
   rows = 1 + height / rez;
-  field = make2dArray(cols, rows);
-
-  for (var i = 0; i < cols; i++) {
-    for (var j = 0; j < rows; j++) {
-      field[i][j] = floor(random(2));
-    }
-  }
+  field = make2dArray(cols, rows)
+  fieldDrawer = new MetaBallField(5);
+  // fieldDrawer = new RandomField(2);
 }
 
 function draw() {
-  background(127)
-
-  // visualize scalar field
-  for (var i = 0; i < cols; i++) {
-    for (var j = 0; j < rows; j++) {
-      stroke(field[i][j] * 255);
-      strokeWeight(rez * 0.15);
-      point(i * rez, j * rez)
-    }
-  }
+  background(127);
+  fieldDrawer.update();
+  // fieldDrawer.render();
 
 // draw threshold contours:
 // as long as iterate over 2D array cols with i, and rows with j,
-// can think of (x,y) cell corner coordinates in terms of (i,j)
+// can think of canvas (x,y) cell corner coordinates in terms of (i * rez, j * rez) indicies
 //
 // Each cell's four corner points:
 //
