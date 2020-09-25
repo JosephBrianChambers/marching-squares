@@ -1,7 +1,7 @@
 var field;
-var rez = 10;
+var rez = 20;
 var cols, rows;
-var threshold = 50
+var threshold = 0.5
 var fieldDrawer;
 
 function setup() {
@@ -9,8 +9,9 @@ function setup() {
   cols = 1 + width / rez;
   rows = 1 + height / rez;
   field = make2dArray(cols, rows)
-  fieldDrawer = new MetaBallField(5);
+  // fieldDrawer = new MetaBallField(5);
   // fieldDrawer = new RandomField(2);
+  fieldDrawer = new PerlinField();
 }
 
 function draw() {
