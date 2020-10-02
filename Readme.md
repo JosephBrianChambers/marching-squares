@@ -20,6 +20,7 @@ Example:
 Example:
  - contours over Perlin noise field
  - 2D scalar field changes over "time" per generated Perlin noise
+ - Noticing some sense of repetition in the pattern, no matter how I tweak the knobs. Not sure what that's due to, but lmk if you know
 
  ![](readme/perlin-example.gif)
 
